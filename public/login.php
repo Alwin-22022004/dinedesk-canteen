@@ -16,6 +16,14 @@ unset($_SESSION['error']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Dinedesk</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
 </head>
 <body>
     <div class="container">

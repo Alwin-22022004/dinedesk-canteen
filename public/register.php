@@ -18,6 +18,13 @@ unset($_SESSION['error'], $_SESSION['success']);
     <title>Register | Dinedesk</title>
     <link rel="stylesheet" href="assets/styles.css">
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
         .form-group {
             position: relative;
             margin-bottom: 1.5rem;
