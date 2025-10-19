@@ -1,0 +1,69 @@
+# Vendor directory (Composer dependencies)
+/vendor/
+
+# Composer lock file (optional, can be included)
+# composer.lock
+
+# Environment files
+.env
+.env.local
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+error_log
+access_log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.bak
+
+# Uploaded files (optional - exclude if sensitive)
+# /public/assets/images/products/*
+# !/public/assets/images/products/.gitkeep
+
+# Cache files
+cache/
+tmp/
+
+# Session files
+sessions/
+
+# Configuration files with sensitive data (if any)
+# config/database_config.php
+# config/razorpay_config.php
+
+# Node modules (if using any JS tools)
+node_modules/
+
+# Build files
+dist/
+build/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows files
+desktop.ini
+
+# PHPStorm
+*.iml
+
+# Backup files
+*.sql.backup
+*.sql.gz

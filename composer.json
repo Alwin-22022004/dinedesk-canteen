@@ -1,0 +1,14 @@
+{
+    "name": "dinedesk/canteen",
+    "description": "Canteen Management System",
+    "type": "project",
+    "require": {
+        "php": ">=7.4",
+        "dompdf/dompdf": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "models/"
+        }
+    }
+}
