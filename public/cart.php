@@ -174,8 +174,8 @@ $cart_count = array_sum($items);
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     
     <script>
-        // Get cart total for Razorpay
-        const cartTotal = <?= $total * 1.05 ?>;
+        // Get cart total for Razorpay (this will be updated when cart changes)
+        let cartTotal = <?= $total * 1.05 ?>;
         
         // Handle checkout form submission
         document.getElementById('checkoutForm').addEventListener('submit', function(e) {
@@ -208,6 +208,13 @@ $cart_count = array_sum($items);
             // Get form data
             const notes = document.getElementById('notes').value;
             
+            // Get current total from the page (most accurate)
+            const currentTotal = parseFloat(document.getElementById('total').textContent.replace('₹', '').replace(',', ''));
+            const amountInPaise = Math.round(currentTotal * 100);
+            
+            console.log('Cart Total: ₹' + currentTotal);
+            console.log('Amount in Paise: ' + amountInPaise);
+            
             // Create order on server first
             fetch('../controllers/razorpay_create_order.php', {
                 method: 'POST',
@@ -215,7 +222,7 @@ $cart_count = array_sum($items);
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    amount: Math.round(cartTotal * 100), // Convert to paise
+                    amount: amountInPaise, // Convert to paise
                     notes: notes
                 })
             })
@@ -455,6 +462,9 @@ $cart_count = array_sum($items);
                 document.getElementById('subtotal').textContent = '₹' + data.subtotal.toFixed(2);
                 document.getElementById('tax').textContent = '₹' + data.tax.toFixed(2);
                 document.getElementById('total').textContent = '₹' + data.total.toFixed(2);
+                
+                // ⭐ UPDATE RAZORPAY CART TOTAL - This is crucial!
+                cartTotal = data.total;
             }
             
             // Update item total
